@@ -29,9 +29,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Download </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="download/flexbox-20211123T115548Z-001.zip">flexbox</a></li>
-                <li><a class="dropdown-item" href="download/css-20211123T115559Z-001.zip">css</a></li>
-                <li><a class="dropdown-item" href="download/bootstrap-5.1.3-dist.zip">bootstrap</a></li>
+                <li><a class="dropdown-item" href="asset/download/flexbox-20211123T115548Z-001.zip">flexbox</a></li>
+                <li><a class="dropdown-item" href="asset/download/css-20211123T115559Z-001.zip">css</a></li>
+                <li><a class="dropdown-item" href="asset/download/bootstrap-5.1.3-dist.zip">bootstrap</a></li>
               </ul>
             </li>
           </ul>
@@ -41,50 +41,81 @@
     <header class="bg-info bg opacity-75">
       <div class="container-fluid d-flex flex-column align-items-center pb-4 pt-4">
         <img src="asset/img/img2.jpg" class="rounded-circle" alt="" width="200px" />
-        <h3 class="font-1 pt-4 text-light">My Project Web</h3>
+        <h3 class="font-1 pt-4 text-light text-center">My Project Web</h3>
+        <h5 class="light">Created By Sulthan</h5>
       </div>
     </header>
-    >
     <section id="aboutme">
       <div class="container-fluid d-flex flex-column align-items-center pb-4 pt-4">
-        <h3 class="text-success fw-bold">=== About Me ===</h3>
+        <h3 class="text-success fw-bold">About Me</h3>
         <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="col-lg-4">
-            <h3>Visi</h3>
-            <p>Menjadi Profesional</p>
-          </div>
-          <div class="col-lg-4">
-            <h3>Misi</h3>
-            <p>Terus Belajar Dan Mau Menerima Penbelajaran</p>
-          </div>
-          <div class="col-lg-2"></div>
-        </div>
-      </div>
+          <h6 class="text-center pt-3">I have vision to build business in the field of distribution, farm and electronics</h6>
+          <hr>
+      <!-- section -->
     </section>
     <section id="myblog">
       <div class="container-fluid d-flex flex-column align-items-center pb-4 pt-4">
-        <h3 class="text-success fw-bold">=== My Blog ===</h3>
-        <div class="row pb-4">
-          <div class="col-md-6">
-            <div class="card" style="width: 18rem">
+        <h3 class="text-success fw-bold pb-4">My Blog</h3>
+        <div class="container row">
+          <div class="col-md-2 mb-2"></div>
+          <div class="col-md-4 mb-2">
+            <div class="card" style="width: 18rem; background-color: slategray">
+              <img src="asset/img/img3.jpeg" class="card-img-top" alt="...">
               <div class="card-body">
-                <a href=""><h5 class="card-title">Beauty Mounstation</h5></a>
-                <p class="card-text">Beauty Mounstation</p>
+                <h5 class="card-title text-light">My Ilust</h5>
+                <p class="card-text text-light">sunpass</p>
+                <a href="detailblog1.html" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card" style="width: 18rem">
+          <div class="col-md-4 mb-2">
+            <div class="card" style="width: 18rem; background-color: slategray;">
+              <img src="asset/img/gam1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <a href=""><h5 class="card-title">Wonderful Flow</h5></a>
-                <p class="card-text">Wonderful Flow</p>
+                <h5 class="card-title text-light">About PHP</h5>
+                <p class="card-text text-light">WebServer adalah sebuah aplikasi server yang melayani permintaan HTTP atau HtTPS...</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
+              <div class="col-md-2 mb-2"></div>
             </div>
           </div>
         </div>
+    </section>
+    <hr>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container pb-4">
+        <div class="row text-center">
+          <div class="col">
+            <h3 class="text-success fw-bold">Contact Me</h3>
+          </div>
+        </div>
+        <form action="">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Information</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Keterangan</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+        </form>
       </div>
     </section>
+
     <!-- footer -->
     <footer">
     <section class="secondary text-light bg-dark pb-5 pt-3">
@@ -113,7 +144,7 @@
             </div>           
           </div>
           <div class="col-md-4">
-            <a style="text-decoration: none; color: blueviolet;" href="https://www.instagram.com/atth_aariq1/?hl=en" class="bi bi-apple"></i> atth_aariq1</a><br>
+            <a style="text-decoration: none; color: blueviolet;" href="https://www.instagram.com/atth_aariq1/?hl=en" class="bi bi-facebook"></i> atth_aariq1</a><br>
             <a style="text-decoration: none;" href="https://www.facebook.com/Sulthan-LibrarySa-109246628296586/?ref=pages_you_manage" class="bi bi-facebook text-primary"> Sulthan Library'Sa</a><br>
             <a  style="text-decoration: none;" href="https://www.youtube.com/channel/UCuNHmeTXL-Ugr2Dg6HjX-Lg" class="text-danger"> SulthanPage</a><br>
             <a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=085707240519&text&app_absent=0" class="bi bi-whatsapp text-success"> 085707240519</a>

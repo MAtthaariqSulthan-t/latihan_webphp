@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+    <div class="row">
+      <div class="col-md-2" style="background-color:rgb(214, 213, 213);"></div>
+      <div class="col-md-8 pt-4" style="background-color:rgb(214, 213, 213);">
+        <h1>Sejarah Web Server</h1>
+        <center><img src="img/gam1.jpg" alt=""></center>
+        <p>
+          WebServer adalah sebuah aplikasi server yang melayani permintaan HTTP atau HtTPS dari browser dan mengirimkanya kembali dalam bentuk halaman-halaman web. Web server dibuat oleh Tim Barnes-Lee pada tahun 1989.Pada saat dia bekerja
+          di perusahaan CERN (Europe Organization for Nuclear Research).Dia membuat sebuah projek berbasis tulisan hiperteks, yang bertujuan mempermudah pertukaran informasi diantara para peneliti. Satu tahun kemudian Tim Berners-Lee
+          menghasilkan dua buah program komputer,yaitu 
+          <ul>
+            <li>Sebuah sistemyang diberi nama WorldWideWeb atau disebut WWW.</li>
+            <li>Sebuah Web Server pertama di dunia yang diberi nama CERN httpd.</li>
+          </ul>
+        </p>
+        <h1>Perbedaan HTTP dan HTTPS</h1>
+        <center><img src="img/gam2.png" alt=""></center>
+    <div class="row">
+      <div class="col-md-6">
+        <center><h6>HTTP</h6></center>
+        <p>HTTP adalah Hypertext Transfer Protokol.Sebagai bagian dari protokol. HTTP, data bergerak melaui jaringan, seperti internet.</p>
+        <ul>
+          <li>HTTP mengirim pesan dalam teks biasa: Itu berarti siapa pun yang memiliki pengetahuan tentang perintah dan sintaks protokol HTTP dapat membaca dan memahaminya. Ini sangat berbahaya katika pengguna mungkin mengirimkan formulir, karena pengguna mungkin memberikan data sensitif, seperti kata sandi, nomor kartu kredit, atau nomorjaminan sosial.</li>
+          <li>Halaman web di situs yang menggunakan HTTP membuat lebih cepat daripada halaman web domain HTTPS: Ini karena HTTPS membutuhkan lebih banyak daya komputasi untuk mengenkripsi pesan.</li>
+          <li>Situs web yang mengunakan HTTP memiliki HTTP:// di awal Unique Resource Locators atau URL mereka.</li>
+          <li>Browser internet menghasilkan permintaan saat pengguna internet berinteraksi dengan properti web. Contoh, browser akan menghasilkan serangkaian permintaan "HTTP GET" ketika pengguna internet menekan tombol hyperlink.</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <center><h6>HTTPS</h6></center>
+        <p>S dalam HTTPS berarti "secure", HTTPS adalah singkatan dari Hypertxt Transfer Protocol secure. Situs Web yang menggunakan HTTPS memiliki https:// di awal URL mereka, dan browser dapt menandai URl ini dengan meletakan gembok hijau di depan.</p>
+        <ul>
+          <li>HTTPS mempromosikan keamanan karena menampilkan sekumpulan karakter yang tampak acak, bukan tekt biasa: Karakter dalam permintaan dan respons HTTPS berisi campuran huruf kecil, huruf besar, dan simbol tanpa spasi atau pengambalian.</li>
+          <li>HTTPS bergantung pada otentikasi: Browser harus memverifikasi bahwa seseorang, mesin, atau situs web adalah siapa atau apa yang mereka klaim. HTTP hanya didasarkan pada prinsip kepercayaan.</li>
+          <li>Setiap situs web yang memerlukan kredensial pengguna dan informasi sensitif perlu menggunakan enkripsi</li>
+          <li>HTTPS menggunakan HTTP, tetapi juga menggunakan protokol Transport Layer Security (TLS) untuk mengenkripsi permintaan dan tanggapan HTTPS</li>
+        </ul>
+      </div>
+    </div>
+        <h1>Jenis-jenis web server dan penjelasanya</h1>
+        <center><img src="img/gam3.jpg" alt="" width="650"></center>
+        <center><h5>Pengertian Web Server</h5></center>
+        <p>Web server adalah sejenis perangkat lunak yang mempu memberikan 
+          layanan atau service untuk menerima request HTTP maupun HTTPS dari klien yang 
+          dikenal seperti Google Chrome, Mozila Firefox, UC Browser, dan lain sebagainya. 
+          Setelah menerima kembali request dari klien, otomatis web server akan 
+          mengirimkan kembali request yang diminta oleh klien dalam bentuk 
+          halaman web, yang umumnya akan berbentuk dokumen HTML.
+        </p>
+        <center><h5>Jenis-jenis Web Server</h5></center>
+        <ul>
+          <li><b>Apache</b>
+          <p>Web Server untuk sistem operasi UNIX, dengan beberapa dukungan kontrol 
+            akses, PHP, SSL.</p>
+          </li>
+          <li><b>Nginx</b>
+          <p>Nginx dapat menangani kebutuhan web server dengan trafik yang sangat tinggi, sekaligus 
+            mengedepankan performa, kemudahan, dan kecepatan.</p>
+          </li>
+          <li><b>IIS (Internet Information Services)</b>
+          <p>Windows versi lawas, seperti Windows 2000 dan Windows 2003 
+            umumnya akan menggunakan web server berjenis IIS. Web IIS didukung 
+            banyak macam fitur dan konponen seperti TCP/IP, DNS, hingga software 
+            untuk membuat situs web. Dan IIS merupakan satu-satunya web yang 
+            mendukung platform .NET dari windows. 
+          </p>
+          </li>
+          <li><b>Lighttpd</b>
+            <p>Lighttpd atau Lightly merupakan web server yang hanya dapat 
+              bekerja pada komputer dengan sistemm operasi Linux dan Unix beserta turunanya.
+            </p>
+          </li>
+        </ul>
+        <h1>Cara setting IIS di Windows</h1><br>
+        <center><img src="img/set.jpg" alt=""></center><br>
+        <center><h5>1. Klik search dan ketik "Turn Windows features on or off" pada control panel.</h5></center><br>
+        <center><img src="img/set1.jpg" alt=""></center><br>
+        <center><h5>2. Kemudian pada tampilan "Windows Features" scrol ke bawah untuk pilihan Cek pada Internet Information Services yang menandakan kita akan mengaktifkan IIS pada Windows 10. Selanjutnya klik OK dan tunggu proses sampai selesai.</h5></center><br>
+        <center><img src="img/se2.jpg" alt=""></center><br>
+        <center><h5>3. Setelah proses selesai cek di search windows jika sudah aktif akan tampil seperti gambar dan aplikasi akan muncuk di start menu windows</h5></center><br>
+        <center><img src="img/set3.jpg" alt=""></center><br>
+        <center><h5>Itulah cara singkat untuk ,menseting atau mengaktifkan Internet Information Services di windows 10. Selamat mencoba semoga bermanfaat bagi teman-teman dan sampai jumpa lagi pada tutorial selanjutnya.</h5></center>
+      </div>
+      <div class="col-md-2" style="background-color:rgb(214, 213, 213);"></div>
+    </div>
+    <!-- footer -->
+    <footer">
+    <section class="secondary text-light bg-dark pb-5 pt-3">
+      <div class="container">
+        <div class="row pt-3">
+          <div class="col-md-2"></div>
+          <div class="col-md-4"><h6>My Office </h6></div>
+          <div class="col-md-6"><h6>Social Media</h6></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+              <div>
+                Nama M.A.Sulthan Y.P.<br>
+                Contac me <a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=085707240519&text&app_absent=0" class="text-success"> 085707240519</a><br>
+                Lokasi <a style="text-decoration: none;" href="">Perum Taman Indah Regency, Sidoarjo</a><br>
+                Email <a style="text-decoration: none;" href="mailto:yogaperdana78@gmail.com">yogaperdana78@gmail.com</a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div>
+              <div>Instagram </div>
+              <div>Facebook </div>
+              <div>Youtube </div>
+              <div>Whastsapp</div>
+            </div>           
+          </div>
+          <div class="col-md-4">
+            <a style="text-decoration: none; color: blueviolet;" href="https://www.instagram.com/atth_aariq1/?hl=en" class="bi bi-apple"></i> atth_aariq1</a><br>
+            <a style="text-decoration: none;" href="https://www.facebook.com/Sulthan-LibrarySa-109246628296586/?ref=pages_you_manage" class="bi bi-facebook text-primary"> Sulthan Library'Sa</a><br>
+            <a  style="text-decoration: none;" href="https://www.youtube.com/channel/UCuNHmeTXL-Ugr2Dg6HjX-Lg" class="text-danger"> SulthanPage</a><br>
+            <a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=085707240519&text&app_absent=0" class="bi bi-whatsapp text-success"> 085707240519</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section> 
+    </footer>
+  </body>
+</html>
