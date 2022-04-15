@@ -15,7 +15,7 @@
     <a href="" class="navbar-brand m-2 px-3">HEADER</a>
       <div class="navbar-nav">
         <div class="nav-item">
-          <a class="nav-link px-3" href="">Sign out</a>
+          <a class="nav-link px-3" href="index.php">Sign out</a>
         </div>
       </div>
     </nav>
