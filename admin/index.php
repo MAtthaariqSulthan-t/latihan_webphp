@@ -1,3 +1,7 @@
+<?php
+    require_once("../config/koneksi_db.php");
+    require_once("../config/config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +26,7 @@
                 <label for="Password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-warning">Login</button>
+            <button type="submit" class="btn btn-warning" name="btnlogin">Login</button>
         </form>
     </div>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
