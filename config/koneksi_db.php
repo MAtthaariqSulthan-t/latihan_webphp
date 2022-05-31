@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";//127.0.0.1
-$database = "dblatihan";
+$database = "dblatihana";
 $user_db = "root";
 $pass_db = "";
 
@@ -10,6 +10,6 @@ if(!$connect_db){
 	exit;
 }
 //set database
-// mysqli_select_db($connect_db, $database);
+mysqli_select_db($connect_db, $database);
 
 ?>
