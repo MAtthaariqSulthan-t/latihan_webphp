@@ -31,7 +31,7 @@ else if(isset($_GET['act']) && ($_GET['act']== "edit")){
 		$check = "";
 	}
 }
-else if(isset($_GET['act']) && ($_GET['act']== "save")){
+else if(isset($_GET['act']) && ($_GET['act']=="save")){
 	//jika ada send variabel act=save, ketika proses simpan(insert)
 	$nmjudul = $_POST['txt_judul'];
 	$kategori = $_POST['txt_kategori'];
