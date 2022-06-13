@@ -1,3 +1,7 @@
+<?php 
+  	require_once "config/koneksi_db.php";
+    require_once "config/config.php";	
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +11,7 @@
     <title>Project Sulthan</title>
     <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="asset/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,7 +57,7 @@
     </header>
     <section id="aboutme">
       <div class="container-fluid d-flex flex-column align-items-center pb-4 pt-4">
-        <h3 class="text-success fw-bold">About Me</h3>
+        <h3 class="text-info fw-bold">About Me</h3>
         <div class="row">
           <h6 class="text-center pt-3">I have vision to build business in the field of distribution, farm and electronics</h6>
           <hr>
@@ -60,8 +65,34 @@
     </section>
     <section id="myblog">
       <div class="container-fluid d-flex flex-column align-items-center pb-4 pt-4">
-        <h3 class="text-success fw-bold pb-4">My Blog</h3>
-        <div class="container row">
+        <h3 class="text-info fw-bold pb-4">My Blog</h3>
+        <?php 
+          $qloop = mysqli_query($connect_db, "SELECT * FROM mst_blog");
+          while($row = mysqli_fetch_array($qloop)){
+        ?>
+        <div class="row mb-4">
+				<div class="col-md-2"></div>
+				<div class="col-md-2">
+					<img src="asset/img/<?=$row['img'];?>" width="270" class="img-fluid img-thumbnail" />
+				</div>
+				<div class="col-md-6">
+					<h4><?=$row['judul'];?></h4>
+					<div>
+						<span class="badge bg-info text-white rounded-3 fs-6"><?=date("Y/m/d",strtotime($row['date_input']));?></span>
+						<span class="text-primary fs-6">Edited By : Sulthan</span>
+					</div>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores fugit quod cumque provident
+						quasi! Ut minus veritatis sed atque, aut
+						modi fugit? Veniam quos voluptatum harum cumque vero, numquam dolore! [ 
+            <a href="detailblog1.html">Baca Selengkapnya</a> ]
+					</p>
+					<hr />
+				</div>
+			</div>
+      <?php }?>
+      <!-- my content -->
+        <!-- <div class="container row">
           <div class="col-md-2 mb-2"></div>
           <div class="col-md-4 mb-2">
             <div class="card" style="width: 18rem; background-color: slategray">
@@ -83,7 +114,7 @@
               </div>
               <div class="col-md-2 mb-2"></div>
             </div>
-          </div>
+          </div> -->
         </div>
     </section>
     <hr>
@@ -92,7 +123,7 @@
       <div class="container pb-4">
         <div class="row text-center">
           <div class="col">
-            <h3 class="text-success fw-bold">Contact Me</h3>
+            <h3 class="text-info fw-bold">Contact Me</h3>
           </div>
         </div>
         <form action="">
@@ -149,9 +180,9 @@
             </div>           
           </div>
           <div class="col-md-4">
-            <a style="text-decoration: none; color: blueviolet;" href="https://www.instagram.com/atth_aariq1/?hl=en" class="bi bi-facebook"></i> atth_aariq1</a><br>
+            <a style="text-decoration: none; color: blueviolet;" href="https://www.instagram.com/atth_aariq1/?hl=en" class="bi bi-instagram"></i> atth_aariq1</a><br>
             <a style="text-decoration: none;" href="https://www.facebook.com/Sulthan-LibrarySa-109246628296586/?ref=pages_you_manage" class="bi bi-facebook text-primary"> Sulthan Library'Sa</a><br>
-            <a  style="text-decoration: none;" href="https://www.youtube.com/channel/UCuNHmeTXL-Ugr2Dg6HjX-Lg" class="text-danger"> SulthanPage</a><br>
+            <a  style="text-decoration: none;" href="https://www.youtube.com/channel/UCuNHmeTXL-Ugr2Dg6HjX-Lg" class="bi bi-youtube text-danger"> SulthanPage</a><br>
             <a style="text-decoration: none;" href="https://api.whatsapp.com/send/?phone=085707240519&text&app_absent=0" class="bi bi-whatsapp text-success"> 085707240519</a>
           </div>
         </div>

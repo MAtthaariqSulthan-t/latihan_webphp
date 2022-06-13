@@ -1,39 +1,45 @@
 <?php 
-include_once "blogCtrl.php";
-if(!isset($_GET['act'])){
+include_once("blogCtrl.php");
+if(!isset($_GET['act'])){	
 //jika tidak ditemukan pengiriman variabel "act"
+
 ?>
 <a href="?modul=mod_blog&act=add" class="btn btn-primary btn-xs mb-1">Tambah Data</a>
 <table class="table table-bordered">
 	<tr>
-		<th>ID blog</th>
+		<th>ID</th>
 		<th>Judul</th>
-		<th>Id_kategori</th>
+		<th>Id kategori</th>
 		<th>isi</th>
         <th>Author</th>
         <th>Date</th>
+		<th>img</th>
         <th>Action</th>
 	</tr>
-	<?php
-	$qry_listmenu = mysqli_query($connect_db,"select * from mst_blog order by id_blog DESC")
-			or die("gagal akses table mst_menu ".mysqli_error($connect_db));
-	while($row = mysqli_fetch_array($qry_listmenu)){		
+	<?php	
+	$qry_listmenu = mysqli_query($connect_db,"SELECT * FROM mst_blog order by id_blog DESC")
+			or die(mysqli_error($connect_db));
+	while($row = mysqli_fetch_array($qry_listmenu)){
+		$idk= $row['id_kategori'];
+		$qk= mysqli_query($connect_db, "SELECT * FROM mst_kategoriblog WHERE id_kategori='$idk'");
+		if($qk2 = mysqli_fetch_array($qk)){
 	?>
 	<tr>
 		<td><?= $row['id_blog']; ?></td>
 		<td><?= $row['judul']; ?></td>
-		<td><?= $row['id_kategori']; ?></td>
+		<td><?= $qk2['nm_kategori']; ?></td>
         <td><?= $row['isi']; ?></td>
         <td><?= $row['author']; ?></td>
         <td><?= $row['date_input']; ?></td>
+		<td><img src="../asset/img/<?= $row['img'];?>" width="50px" height="50px"></td>
 		<td>
-			<a href="?modul=mod_blog&act=edit&id=<?= $row['id_blog']; ?>" class="btn btn-xs btn-primary p-1"><i
-					class="bi bi-pencil-square"></i>Edit</a>
-			<a href="?modul=mod_blog&act=delete&id=<?= $row['id_blog']; ?>" class="btn btn-xs btn-primary p-1">
-				<i class="bi bi-trash"></i>Delete</a>
+			<a href="?modul=mod_blog&act=edit&id=<?= $row['id_blog'];?>" class="btn btn-outline-primary p-1">
+				<i class="bi bi-trash">Edit</i></a>
+			<a href="?modul=mod_blog&act=delete&id=<?= $row['id_blog'];?>" class="btn btn-outline-danger p-1">
+				<i class="bi bi-trash">Delete</i></a>
 		</td>
 	</tr>
-	<?php }	?>
+	<?php }}?>
 </table>
 <?php 
 } //ini penutup if(!isset($_GET['act']))
@@ -42,11 +48,11 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 ?>
 <div class="container-fluid">
 	<h3><?php echo $judul; ?></h3>
-	<form action="mod_blog/blogCtrl.php?modul=mod_blog&act=save" method="POST">
+	<form action="mod_blog/blogCtrl.php?modul=mod_blog&act=save" method="POST" enctype="multipart/form-data">
 		<div class="row mb-1">
 			<label for="" class="col-md-2">Judul</label>
 			<div class="col-md-6">
-				<input type="text" name="txt_judul" id="txt_nmmenu" class="form-control ">
+				<input type="text" name="txt_judul" class="form-control ">
 			</div>
 		</div>
         <!-- id kategori -->
@@ -67,7 +73,7 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 		<div class="row mb-1">
 			<label for="" class="col-md-2">isi</label>
 			<div class="col-md-6">
-				<input type="text" name="txt_isi" id="txt_link" class="form-control ">
+				<textarea name="txt_isi" id="" cols="55" rows="5"></textarea>
 			</div>
 		</div>
         <div class="row mb-1">
@@ -76,10 +82,16 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 				<input type="text" name="txt_author" id="txt_link" class="form-control ">
 			</div>
 		</div>
-        <div class="row">
+        <div class="row mb-1">
 			<label for="" class="col-md-2">Date</label>
 			<div class="col-md-6">
 				<input type="date" name="txt_date" id="txt_link" class="form-control ">
+			</div>
+		</div>
+		<div class="row mb-1">
+			<label for="" class="col-md-2">Upload</label>
+			<div class="col-md-6">
+					<input type="file" name="urlfile" class="form-control">
 			</div>
 		</div>
 		<div class="row pt-1">
@@ -93,46 +105,73 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 		</div>
 	</form>
 </div>
-<?php 
- }
- else if(isset($_GET['act']) && ($_GET['act']== "edit")){
-	 //ini akan ditampilkan saat klik tombol edit
-?>
-<div class="container-fluid">
-	<h3><?php echo $judul; ?></h3>
-	<form action="mod_menu/menuCtrl.php?modul=mod_menu&act=update" method="post">
-		<div class="row mb-1">
-			<label for="" class="col-md-2">Nama Menu</label>
-			<div class="col-md-6">
-				<!-- input type hidden ini untuk menyimpan idmenu sebagai key untuk proses update data
-				kenapa di hidden, karena field sbg primary key tidak boleh di edit -->
-				<input type="hidden" name="txt_idmenu" id="txt_idmenu" class="form-control"
-					value="<?php echo $data['idmenu']; ?>">
-				<input type="text" name="txt_nmmenu" id="txt_nmmenu" class="form-control"
-					value="<?php echo $data['nmmenu']; ?>">
+<?php } 
+	else if(isset($_GET['act']) && ($_GET['act']=="edit")) {
+ ?>
+	<div class="container">
+		<h3><?= $judul; ?></h3>
+		<form action="mod_blog/blogCtrl.php?modul=mod_blog&act=update" method="POST" enctype="multipart/form-data">
+			<div class="row mb-1">
+				<label for="" class="col-md-2">Judul</label>
+				<div class="col-md-6">
+					<input type="hidden" name="txt_idblog" class="form-control" value="<?=$data['id_blog'];?>">
+					<input type="text" name="txt_judul" class="form-control" value="<?=$data['judul'];?>">
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<label for="" class="col-md-2">Link</label>
-			<div class="col-md-6">
-				<input type="text" name="txt_link" id="txt_link" class="form-control" value="<?= $data['link']; ?>">
+			<div class="row mb-1">
+				<label for="" class="col-md-2">Kategori</label>
+				<div class="col-md-6">
+					<select name="txt_kategori" id="" class="form-select">
+						<?php
+						$qiup=mysqli_query($connect_db, "SELECT * FROM mst_kategoriblog");
+						while($se=mysqli_fetch_array($qiup)){
+							if($se['id_kategori'] === $data['id_kategori']){
+								$select = "selected";
+							}
+							else{
+								$select = "";
+							}
+						?>
+						<option value="<?= $se['id_kategori'];?>" <?= $select; ?> ><?= $se['nm_kategori'];?></option>
+						<?php
+						};
+						?>
+					</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-6">
-				<input type="checkbox" name="ck_aktif" id="ck_aktif" <?php echo $check; ?>> Aktif
+			<div class="row mb-1">
+				<label for="" class="col-md-2">isi</label>
+				<div class="col-md-6">
+					<textarea name="txt_isi" id="" cols="55" rows="5"><?=$data['isi'];?></textarea> 
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-6">
+			<div class="row mb-1">
+				<label for="" class="col-md-2">Author</label>
+				<div class="col-md-6">
+					<input type="text" name="txt_author" class="form-control" value="<?=$data['author']?>">
+				</div>
+			</div>
+			<div class="row mb-1">
+				<label for="" class="col-md-2">Date</label>
+				<div class="col-md-6">
+					<input type="date" name="txt_date" class="form-control" value="<?=$data['date_input'];?>">
+				</div>
+			</div>
+			<div class="row mb-1">
+				<label for="" class="col-md-2">Upload</label>
+				<div class="col-md-6">
+					<input type="file" name="urlfile" class="form-control" value="<?=$data['img'];?>">
+				</div>
+			</div>
+			<div class="row pt-1">
+				<div class="col-md-2"></div>
+				<div class="col-md-6">
 				<button type="reset" name="btnreset" value="btnbatal" class="btn btn-xs btn-secondary p-1">
 					<i class="bi bi-x-lg"></i> Batal</a></button>
 				<button type="submit" name="btnsimpan" value="btnsimpan" class="btn btn-xs btn-primary p-1">
 					<i class="bi bi-save"></i> Simpan</a></button>
+				</div>
 			</div>
+		  </form>
 		</div>
-	</form>
-</div>
-<?php } ?>
+		<?php }; ?>

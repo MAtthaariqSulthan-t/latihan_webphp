@@ -70,12 +70,10 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 	?>
 <div class="container-fluid">
 	<h3><?php echo $judul; ?></h3>
-	<form action="mod_kategori/kategoriCtrl.php?modul=mod_kategori&act=update" method="post">
+	<form action="mod_kategori/kategoriCtrl.php?modul=mod_kategori&act=update" method="POST">
 		<div class="row mb-1">
 			<label for="" class="col-md-2">Nama Kategori</label>
 			<div class="col-md-6">
-				<!-- input type hidden ini untuk menyimpan idmenu sebagai key untuk proses update data
-					kenapa di hidden, karena field sbg primary key tidak boleh di edit -->
 				<input type="hidden" name="txt_id" id="txt_id" class="form-control"
 					value="<?php echo $data['id_kategori']; ?>">
 				<input type="text" name="txt_nmkategori" id="txt_nmmenu" class="form-control"

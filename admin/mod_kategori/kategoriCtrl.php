@@ -37,28 +37,38 @@ else if (isset($_GET['act']) && ($_GET['act'])=="save"){
 		$aktif=0;
 	}
 	$dtinsert=mysqli_query($connect_db,
-	"INSERT into mst_kategoriblog (nm_kategori, is_active) VALUES ('$nmkategori', '$aktif')")
-	or die(mysqli_error($connect_db));
-		if($dtinsert){
-			header("Location: http://localhost/backup/latihan_webphp-main/admin/home.php?modul=mod_kategori");
-		}
+		"INSERT into mst_kategoriblog (nm_kategori, is_active) VALUES ('$nmkategori', '$aktif')")
+		or die(mysqli_error($connect_db));
+			if($dtinsert){
+				header("Location: http://localhost/latihan_webphp/admin/home.php?modul=mod_kategori");
+			}
 }
-else if(isset($_GET['act']) && ($_GET['act']== "update")){
+else if(isset($_GET['act']) && ($_GET['act']=="update")){
 	//jika ada send variabel act=update, ketika proses simpan ubah data
-	$idkategori = $_POST['txt_idkategori'];
+	$idkategori = $_POST['txt_id'];
 	$namakt = $_POST['txt_nmkategori'];
-	if(isset($_POST['ck_aktif'])){
-		$aktif = 1;
-	}
-	else{
-		$aktif = 0;
-	}
+		if(isset($_POST['ck_aktif'])){
+			$aktif = 1;
+		}
+		else{
+			$aktif = 0;
+		}
 	//query untuk simpan
 	$qiup = mysqli_query($connect_db, 
-			"UPDATE mst_kategoriblog SET nm_kategori='$namakt', is_active=$aktif WHERE id_menu='$idkategori'")
-			or die (mysqli_error($connect_db));
-	if($qiup){
-		//ketik proses simpan update berhasil
-		header("Location: http://localhost/backup/latihan_webphp-main/admin/home.php?modul=mod_kategori");
+		"UPDATE mst_kategoriblog SET nm_kategori='$namakt', is_active='$aktif' WHERE id_kategori='$idkategori'")
+		or die(mysqli_error($connect_db));
+			if($qiup){
+				//ketik proses simpan update berhasil
+				header("Location: http://localhost/latihan_webphp/admin/home.php?modul=mod_kategori");
 	}
-}	
+}
+
+else if(isset($_GET['act']) && ($_GET['act']=="delete")){
+	$id_user=$_GET['id'];
+
+	$datadelete=mysqli_query($connect_db,
+	"DELETE FROM mst_kategoriblog WHERE id_kategori='$id_user' ");
+	if($datadelete){
+		header("Location: http://localhost/latihan_webphp/admin/home.php?modul=mod_kategori");
+	}	
+}
