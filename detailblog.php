@@ -9,12 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Blog</title>
+    <link rel="stylesheet" href="asset/style.css" />
     <style>
     .center {
      display: block;
      margin-left: auto;
      margin-right: auto;
-     width: 50%;
+     width: 550px;
     }
     </style>
 </head>
@@ -30,7 +31,7 @@
 				<div class="col-md-2"></div>
                     <h1><?=$row['judul'];?></h1>
 				<div class="col-md-2">
-					<img src="asset/img/<?=$row['img'];?>" width="40%"  class="center" />
+					<img src="asset/img/<?=$row['img'];?>" width=""  class="center" />
 				</div>
 				<div class="col-md-6">
 					<div>

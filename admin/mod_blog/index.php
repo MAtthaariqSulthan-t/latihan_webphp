@@ -7,8 +7,11 @@ if(!isset($_GET['act'])){
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="../../asset/tinymce/js/tinymce/tinymce.min.js"></script>
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+  <script type='text/javascript'> 
+	tinymce.init({ selector:'textarea'});
+  </script>
 </head>
 <body>
 <a href="?modul=mod_blog&act=add" class="btn btn-primary btn-xs mb-1">Tambah Data</a>
@@ -53,6 +56,10 @@ if(!isset($_GET['act'])){
 else if(isset($_GET['act']) && ($_GET['act']== "add")){
 //ketika di add
 ?>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type='text/javascript'> 
+	tinymce.init({ selector:'textarea'});
+  </script>
 <div class="container-fluid">
 	<h3><?php echo $judul; ?></h3>
 	<form action="mod_blog/blogCtrl.php?modul=mod_blog&act=save" method="POST" enctype="multipart/form-data">
@@ -80,7 +87,7 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 		<div class="row mb-1">
             <label for="isi" class="col-sm-2 col-form-label">Isi</label>
                 <div class="col-sm-6">
-				<textarea>Next, use our Get Started docs to setup Tiny!</textarea>
+					<textarea name="txt_isi" class="form-control" id="teksarea" cols="55" rows="5"></textarea>
   	            </div>
         </div>
         <div class="row mb-1">
@@ -115,6 +122,10 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 <?php } 
 	else if(isset($_GET['act']) && ($_GET['act']=="edit")) {
  ?>
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  	<script type='text/javascript'> 
+	tinymce.init({ selector:'textarea'});
+ 	</script>
 	<div class="container">
 		<h3><?= $judul; ?></h3>
 		<form action="mod_blog/blogCtrl.php?modul=mod_blog&act=update" method="POST" enctype="multipart/form-data">
@@ -149,7 +160,7 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 			<div class="row mb-1">
 				<label for="" class="col-md-2">isi</label>
 				<div class="col-md-6">
-					<textarea name="txt_isi" id="tinymceriobermano" cols="55" rows="5"><?=$data['isi'];?></textarea> 
+					<textarea name="txt_isi" class="form-control" id="teksarea" cols="55" rows="5"><?=$data['isi'];?></textarea> 
 				</div>
 			</div>
 			<div class="row mb-1">
