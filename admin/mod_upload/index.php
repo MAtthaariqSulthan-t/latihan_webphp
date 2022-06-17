@@ -13,9 +13,8 @@ if(!isset($_GET['act'])){
     <title>Document</title>
 </head>
 <body>
-<a href="" class="btn btn-primary btn-xs mb-1">Tambah Data</a>
     <form action="mod_upload/uploadCtrl.php" method="post" enctype="multipart/form-data">
-		<div class="row mb-1">
+		<div class="row mb-1 pt-3">
 			<label for="" class="col-md-2">Upload</label>
 			<div class="col-md-6">
 				<input type="file" name="urlfile" id="txt_nmmenu" class="form-control ">

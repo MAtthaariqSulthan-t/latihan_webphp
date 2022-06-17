@@ -1,5 +1,5 @@
 <?php 
-if(isset($_GET['act']) && ($_GET['act']=="update" || $_GET['act']== "save")){
+if(isset($_GET['act']) && ($_GET['act']=="update" || $_GET['act']=="save")){
 	//ketika code ini, posisi ada d folder mod_menu>admin>config
 	require_once "../../config/koneksi_db.php";
 	require_once "../../config/config.php";		

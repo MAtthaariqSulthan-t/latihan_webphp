@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Sulthan</title>
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   </head>
@@ -81,11 +81,14 @@
 						<span class="badge bg-info text-white rounded-3 fs-6"><?=date("Y/m/d",strtotime($row['date_input']));?></span>
 						<span class="text-primary fs-6">Edited By : Sulthan</span>
 					</div>
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores fugit quod cumque provident
-						quasi! Ut minus veritatis sed atque, aut
-						modi fugit? Veniam quos voluptatum harum cumque vero, numquam dolore! [ 
-            <a href="detailblog1.html">Baca Selengkapnya</a> ]
+          
+            <p><?php $baka=$row['isi'];
+                     $humax=200;
+
+                     $result=substr($baka,0,$humax);
+                     echo $result;
+            ?></p>
+            <a href="detailblog.php?id=<?=$row['id_blog'];?>">Baca Selengkapnya</a> 
 					</p>
 					<hr />
 				</div>
@@ -126,30 +129,49 @@
             <h3 class="text-info fw-bold">Contact Me</h3>
           </div>
         </div>
-        <form action="">
+        <form action="admin/mod_coresponden/respondenCtrl.php" method="POST" id="formkorespon">
         <div class="row justify-content-center">
           <div class="col-md-8">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nama</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1">
+              <input type="text" name="nama" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Email</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Information</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1">
+              <input type="text" name="informasi" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Keterangan</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+              <textarea class="form-control" name="keterangan" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div> 
+              <button type="submit" name="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">kirim</button>
           </div>
         </div>
         </form>
       </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="btnyes">Ya</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- modal -->
     </section>
 
     <!-- footer -->
@@ -187,6 +209,7 @@
           </div>
         </div>
       </div>
+      <!-- Button trigger modal -->
     </section> 
     </footer>
     <!-- <footer class="bg-dark p-3" id="footer">
@@ -197,6 +220,9 @@
         <div class="col-md-4"></div>
       </div>
     </footer> -->
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- end modal -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="asset/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="proses.js"></script>
   </body>
 </html>

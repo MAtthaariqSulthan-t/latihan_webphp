@@ -4,6 +4,13 @@ if(!isset($_GET['act'])){
 //jika tidak ditemukan pengiriman variabel "act"
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
+</head>
+<body>
 <a href="?modul=mod_blog&act=add" class="btn btn-primary btn-xs mb-1">Tambah Data</a>
 <table class="table table-bordered">
 	<tr>
@@ -71,11 +78,11 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
                 </div> 
         </div>
 		<div class="row mb-1">
-			<label for="" class="col-md-2">isi</label>
-			<div class="col-md-6">
-				<textarea name="txt_isi" id="" cols="55" rows="5"></textarea>
-			</div>
-		</div>
+            <label for="isi" class="col-sm-2 col-form-label">Isi</label>
+                <div class="col-sm-6">
+				<textarea>Next, use our Get Started docs to setup Tiny!</textarea>
+  	            </div>
+        </div>
         <div class="row mb-1">
 			<label for="" class="col-md-2">Author</label>
 			<div class="col-md-6">
@@ -142,7 +149,7 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 			<div class="row mb-1">
 				<label for="" class="col-md-2">isi</label>
 				<div class="col-md-6">
-					<textarea name="txt_isi" id="" cols="55" rows="5"><?=$data['isi'];?></textarea> 
+					<textarea name="txt_isi" id="tinymceriobermano" cols="55" rows="5"><?=$data['isi'];?></textarea> 
 				</div>
 			</div>
 			<div class="row mb-1">
@@ -175,3 +182,6 @@ else if(isset($_GET['act']) && ($_GET['act']== "add")){
 		  </form>
 		</div>
 		<?php }; ?>
+		<script src="../../asset/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
